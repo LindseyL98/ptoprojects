@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PTO v3.0</title>
+</head>
+<body>
+    <h1>PTO V3.0</h1>
+    <p>A simple PTO (Paid time off) calculator that uses how many years you have worked to get correct PTO rate. Then uses how many weeks you have worked so far this year to calculate total PTO to date. Then deducts any TPO that you have taken to date. Results can be returned in hours or days or weeks.</p>
+     <ol>
+        <li>START</li>
+        <li>DISPLAY "How many have you worked?"</li>
+        <li>INPUT yearsWorked</li>
+        <li>DISPLAY "How many weeks have you worked>"</li>
+        <li>INPUT weeksWorked?</li>
+        <li>DISPLAY "How many paid time off hours have you used this year?"" </li>
+        <li>INPUT hoursUsed</li>
+        <li>SET INT totalHours = 40</li>
+        <li>SET INT totalDay = 8</li>
+        <li>SET INT checksPerYear = 26</li>
+        <li>SET (checksPerYear * ptoPerCheck) - hoursUsed</li>
+        <li>END</li>
+    </ol> 
+    <form action="#" onsubmit="ptoCalc()">
+        <input type="text" id="yearsWorked">
+        <input type="text" id="weeksWorked">
+        <input type="text" id="hoursUsed">
+        <button type="submit">Submit</button>
+    </form>
+    <span id="output"></span>
+    <script>
+        function ptoCalc() {
+            var yearsWorked = document.getElementById('yearsWorked').value;
+            var weeksWorked = document.getElementById('weeksWorked').value;
+            var hoursUsed = document.getElementById('hoursUsed').value;
+            var output = document.getElementById('output');
+            var checksPerYear = 26;
+            var totalHours = 40;
+            var totalDay = 8;
+            if (yearsWorked < 5) {
+                var ptoPerCheck = 5;
+            } else if (yearsWorked < 10) {
+                var ptoPerCheck = 6;
+            } else {
+                var ptoPerCheck =7;
+            } 
+            var ptoLeft = (checksPerYear * ptoPerCheck) - hoursUsed;
+            output.innerHTML = "You have " + ptoLeft + " hours left <br> you have " + ptoLeft / totalDay + "days left <br> you have" + ptoLeft / totalHours + " hours left ";
+        }
+    </script>
+</body>
+</html>
+

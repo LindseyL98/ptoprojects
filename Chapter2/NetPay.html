@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NET Pay Program</title>
+    <link rel="stylesheet" href="calc.js">
+</head>
+<body>
+    <h1>NET Pay Program</h1>
+    <p>A basic net pay calculator. It takes your GROSS pay and then deducts Federal, State, and FICA. It has the option to deduct any additional amount from your check. Then it displays your NET pay.</p>
+    <!--FED 15%-->
+    <!--STATE 5%-->
+    <!--FICA 7.62%-->
+    <ol>
+        <li>START</li>
+        <li>DISPLAY "What is your grossPay"</li>
+        <li>INPUT grossPay</li>
+        <li>DISPLAY "Now deducting Federal Taxes."</li>
+        <li>SET INT fedPay = grossPay * .15</li>
+        <li>DISPLAY "Now we are deducting ypur State Taxes"</li>
+        <li>SET INT statePay = grossPay * .05</li>
+        <li>DISPLAY "Now time to deduct FICA"</li>
+        <li>SET INT ficaPay = grossPay * .0762</li>
+        <li>DISPLAY "Put any Additional Deductions"</li>
+        <li>SET INT additional = 0</li>
+        <li>INPUT additional</li>
+        <li>SET INT netPay = grossPay - (fedPay + statePay + ficaPay + additional)</li>
+        <li>END</li>
+    </ol>
+
+
+    <p>What is your gross pay?</p>
+    <form action="#" onsubmit="NetPay()">
+        <input type="text" id="grossPay">
+        <p>Add any additional fees.</p>
+        <input type="text" id="additional" value="0">
+        <input type="submit" value="submit">
+    </form>
+    <p>Your Net Pay is <span id="output"></span>.</p>
+    <script>
+        function NetPay() {
+            var output = document.getElementById('output');
+            var grossPay = parseInt(document.getElementById('grossPay').value);
+            var additional = parseInt(document.getElementById('additional').value);
+
+            var fedPay = grossPay * .15
+            var statePay = grossPay * .05
+            var ficaPay = grossPay * .0762
+            var netPay = grossPay - (fedPay + statePay + ficaPay + additional)
+            output.innerHTML = "$" + netPay;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PTO v1.0</title>
+</head>
+<body>
+    <h1>PTO Program</h1>
+    <h2>PTO V1.0</h2>
+    <p>A simple program that calculates the PTO (Paid Time Off) for 1yr at a fixed rate for 5hrs per paycheck paid bi-weekly</p>
+    <ol>
+        <li>START</li>
+        <li>SET INT paychecksPerYear</li>
+        <li>SET INT hrsPerPaycheck</li>
+        <li>DISPLAY "This is a simple program that outputs how many hours you earn a year for PTO (Paid Time Off)</li>
+        <li>SET INT totlHoursPerYear = hrsPerPaycheck + paychecksPerYear</li>
+        <li>DISPLAY " You earn <span id="output"></span> hours per year</li>
+        <li>END</li>
+    </ol>
+    <script>
+        var output = document.getElementById('output');
+        var paychecksPerYear = 26;
+        var hrsPerPaycheck = 5;
+        var totlHoursPerYear = hrsPerPaycheck * paychecksPerYear
+        output.innerHTML = '<em>' + totlHoursPerYear + '</em>'
+    </script>
+</body>
+</html>

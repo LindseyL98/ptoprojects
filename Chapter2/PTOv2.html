@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PTO v2.0</title>
+</head>
+<body>
+   <h1>PTO Program</h1>
+   <h2>PTO v2.0</h2>
+   <p>A simple program that calculates the PTO (Paid Time Off) for the corresponding amount of time the employee has worked in years. Returns the PTO in weeks.</p>
+   <ol>
+       <li>START</li>
+       <li>SET INT hrsPerPaycheck</li>
+       <li>SET INT payChecksPerYear</li>
+       <li>DISPLAY "How many years have you worked"</li>
+       <li>INPUT yearsWorked</li>
+       <li>if yearsWorked < 5 hrsPerPaycheck = 5</li>
+       <li>if yearsWorked equal to or greater</li>
+       <li>END </li>
+   </ol>
+   <form action="#" onsubmit="calcPTO()">
+        <p>How many years have you worked?</p>
+        <input type="text" id="yearsWorked">
+        <button type="submit">Submit</button>
+   </form>
+   <span id="output"></span>
+   <script>
+       function calcPTO() {
+            event.preventDefault();
+            var biweekly = 26;
+            var output = document.getElementById('output');
+            var yearsWorked = parseInt(document.getElementById("yearsWorked").value);
+            if (yearsWorked < 5) {
+                ptoPerCheck = 5;
+            }
+            if (yearsWorked >= 5) {
+                ptoPerCheck = 6;
+            }
+            if (yearsWorked  >= 10) {
+                ptoPerCheck = 7;
+            }
+            
+            var ptoWeek = ptoPerCheck * biweekly;
+            output.innerHTML = ptoWeek / 40;
+       }
+       
+   </script>
+</body>
+</html>
